@@ -1,0 +1,135 @@
+---
+title: "贝叶斯因子序列分析在R语言中的实现"
+author:
+  - 郑元瑞
+  - 胡传鹏
+documentclass: ctexart
+keywords:
+  - 贝叶斯因子
+  - 序列分析
+output:
+  rticles::ctex:
+    fig_caption: yes
+    number_sections: yes
+    toc: yes
+---
+
+# 下载和安装需要的R语言程序包
+```{r}
+# install.packages(c("tidyverse", "BayesFactor", "here"))
+library(BayesFactor)#计算T检验和方差分析的贝叶斯因子
+library(tidyverse)
+# library(here)
+```
+
+# 导入数据
+
+```{r}
+df <- read_csv("/Users/zhengyuanrui/Desktop/SBFA/data/df.js.sum_jasp.csv")
+#T检验使用数据
+```
+## 数据长宽数据转换
+```{r}
+df_anova <- df %>%
+  select(subj_idx:Mismatch_Good) %>%
+  pivot_longer(
+    cols = Match_Bad:Mismatch_Good, 
+    names_to = c("Matchness", "Valence"),
+    names_sep = "_", values_to = "rt"
+  )#anova使用数据
+```
+
+
+# 查看数据的被试信息
+```{r}
+subj_num <- unique(df$subj_idx) # 每个被试的编号
+n <- length(unique(df$subj_idx)) # 一共有20个被试
+```
+
+#（配对样本）T检验的R语言实现
+## good_match条件与bad_match条件的对比
+先建立一个空的列表，用来储存后续的贝叶斯因子。列表长度为目前数据的样本量
+```{r}
+bf_output <- rep(NA, length(subj_num)) ### 先建立一个列表
+```
+
+
+```{r}
+for (i in seq_along(subj_num)) {#i遍历subj_num
+  if (i == 1) {
+    next
+    #由于一个被试不能正确计算贝叶斯因子，所以当i等于1时，跳过
+  }
+  #将df数据框中的subj_idx列转换为字符串型
+  df$subj_idx <- as.character(df$subj_idx)
+  #提取出遍历到的被试编号
+  id <- unique(df$subj_idx)[1:i]
+  #从愿数据中筛选被试
+  df.selected <- df %>% filter(subj_idx %in% id)
+  #转换为因子型
+  df.selected$subj_idx <- as.factor(df.selected$subj_idx)
+  bayesfactors <- ttestBF(
+    x = df.selected$Match_Bad, y = df.selected$Match_Good,
+    paired = TRUE
+  )#计算贝叶斯因子
+  bf_output[i] <- bayesfactors[1]
+}
+```
+
+
+```{r}
+bf_output
+```
+
+
+# （重复测量）方差分析的R语言实现
+## 数据的基本信息
+```{r}
+subj_num <- unique(df_anova$subj_idx) # 每个被试的编号
+n <- length(unique(df_anova$subj_idx)) # 一共有20个被试
+```
+
+生成三个列表用来储存两个主效应和交互项
+```{r}
+BFs_match <- rep(NA, length(subj_num))
+
+BFs_valence <- rep(NA, length(subj_num))
+
+BFs_int <- rep(NA, length(subj_num))
+```
+
+```{r}
+for (i in seq_along(subj_num)) {
+  if (i == 1) {
+    next
+  }
+  df_anova$subj_idx <- as.character(df_anova$subj_idx)
+  id <- unique(df_anova$subj_idx)[1:i]
+  df.selected <- df_anova %>% filter(subj_idx %in% id)
+  df.selected$subj_idx <- as.factor(df.selected$subj_idx)
+  df.selected$Matchness <- as.factor(df.selected$Matchness)
+  df.selected$Valence <- as.factor(df.selected$Valence)
+  bayesfactors <- bf <- anovaBF(rt ~ Valence*Matchness + subj_idx,
+    data = data.frame(df.selected),
+    whichRandom = "subj_idx"
+  )
+  BFs_match[i] <- bayesfactors[1]
+  BFs_valence[i] <- bayesfactors[2]
+  BFs_int[i] <- bayesfactors[4] / bayesfactors[3]
+}
+```
+
+
+```{r}
+BFs_match
+```
+
+```{r}
+BFs_valence
+```
+
+```{r}
+BFs_int
+```
+
+
