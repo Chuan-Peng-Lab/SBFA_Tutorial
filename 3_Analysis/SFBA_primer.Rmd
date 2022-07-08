@@ -15,17 +15,18 @@ output:
 ---
 
 # 下载和安装需要的R语言程序包
-```{r}
+```{r message=FALSE, warning=FALSE}
 # install.packages(c("tidyverse", "BayesFactor", "here"))
 library(BayesFactor)#计算T检验和方差分析的贝叶斯因子
 library(tidyverse)
-# library(here)
+library(here)
+here()
 ```
 
 # 导入数据
 
 ```{r}
-df <- read_csv("/Users/zhengyuanrui/Desktop/SBFA/data/df.js.sum_jasp.csv")
+df <- read_csv(here("2_Data", "df.js.sum_jasp.csv"))
 #T检验使用数据
 ```
 ## 数据长宽数据转换

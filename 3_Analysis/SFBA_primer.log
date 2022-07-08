@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.10.22)  6 JUL 2022 22:59
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.10.22)  8 JUL 2022 13:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -946,46 +946,28 @@ LaTeX Font Warning: Font shape `TU/STFangsong(0)/m/it' undefined
 
 LaTeX Font Info:    Font shape `TU/STFangsong(0)/m/n' will be
 (Font)              scaled to size 10.23074pt on input line 123.
-
-Overfull \hbox (296.84756pt too wide) in paragraph at lines 141--141
-[]\TU/lmtt/m/n/10.53937 ## Welcome to BayesFactor 0.9.12-4.3. If you have quest
-ions, please contact Richard Morey (richarddmorey@gmail.com).[] 
- []
-
 [1
 
 ]
-Overfull \hbox (114.25317pt too wide) in paragraph at lines 151--151
-[]\TU/lmtt/m/n/10.53937 ## -- Attaching packages ------------------------------
---------- tidyverse 1.3.1 --[] 
- []
-
-
-Overfull \hbox (114.25317pt too wide) in paragraph at lines 167--167
-[]\TU/lmtt/m/n/10.53937 ## -- Conflicts ---------------------------------------
---- tidyverse_conflicts() --[] 
- []
-
-
-Overfull \hbox (114.25323pt too wide) in paragraph at lines 193--193
+Overfull \hbox (114.25323pt too wide) in paragraph at lines 152--152
 []\TU/lmtt/m/n/10.53937 ## -- Column specification ----------------------------
 ----------------------------[] 
  []
 
 
-Overfull \hbox (108.71986pt too wide) in paragraph at lines 193--193
+Overfull \hbox (108.71986pt too wide) in paragraph at lines 152--152
 []\TU/lmtt/m/n/10.53937 ## dbl (9): Match_Bad, Match_Good, Match_Neutral, Misma
 tch_Bad, Mismatch_Good, ...[] 
  []
 
 
-Overfull \hbox (64.45451pt too wide) in paragraph at lines 193--193
+Overfull \hbox (64.45451pt too wide) in paragraph at lines 152--152
 []\TU/lmtt/m/n/10.53937 ## i Use []spec()[] to retrieve the full column specifi
 cation for this data.[] 
  []
 
 
-Overfull \hbox (119.78621pt too wide) in paragraph at lines 193--193
+Overfull \hbox (119.78621pt too wide) in paragraph at lines 152--152
 []\TU/lmtt/m/n/10.53937 ## i Specify the column types or set []show_col_types =
  FALSE[] to quiet this message.[] 
  []
@@ -993,95 +975,95 @@ Overfull \hbox (119.78621pt too wide) in paragraph at lines 193--193
 LaTeX Font Info:    Font shape `TU/SongtiSCLight(0)/m/sl' in size <10.53937> no
 t available
 (Font)              Font shape `TU/SongtiSCLight(0)/m/it' tried instead on inpu
-t line 204.
+t line 188.
 [2]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10.53937> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 232.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 191.
 
 LaTeX Font Warning: Font shape `TU/lmtt/bx/it' in size <10.53937> not available
 
-(Font)              Font shape `TU/lmtt/b/sl' tried instead on input line 232.
+(Font)              Font shape `TU/lmtt/b/sl' tried instead on input line 191.
 
 
 LaTeX Font Warning: Font shape `TU/STFangsong(0)/b/it' undefined
-(Font)              using `TU/STFangsong(0)/m/n' instead on input line 232.
+(Font)              using `TU/STFangsong(0)/m/n' instead on input line 191.
 
-[3]
-Overfull \hbox (92.12042pt too wide) in paragraph at lines 271--271
+
+Overfull \hbox (92.12042pt too wide) in paragraph at lines 230--230
 []\TU/lmtt/m/n/10.53937 ##  [1]          NA    1.079341    2.095059    3.339921
     6.652698   19.097998[] 
  []
 
 
-Overfull \hbox (92.12033pt too wide) in paragraph at lines 271--271
+Overfull \hbox (92.12033pt too wide) in paragraph at lines 230--230
 []\TU/lmtt/m/n/10.53937 ##  [7]   31.855000   49.752936  130.961355   58.188628
    93.428773  239.350270[] 
  []
 
 
-Overfull \hbox (92.12033pt too wide) in paragraph at lines 271--271
+Overfull \hbox (92.12033pt too wide) in paragraph at lines 230--230
 []\TU/lmtt/m/n/10.53937 ## [13]  127.216734  250.586118  571.531998 1522.706898
  2032.527877 2787.948423[] 
  []
 
+[3]
+Overfull \hbox (92.12036pt too wide) in paragraph at lines 291--291
+[]\TU/lmtt/m/n/10.53937 ##  [1]          NA   0.8789661   0.8443724   0.6834420
+   1.2285291   1.1077484[] 
+ []
+
+
+Overfull \hbox (92.12033pt too wide) in paragraph at lines 291--291
+[]\TU/lmtt/m/n/10.53937 ##  [7]   2.0256113   2.6630755   4.3115568  11.2786746
+   3.8717980   9.6159303[] 
+ []
+
 [4]
-Overfull \hbox (92.12036pt too wide) in paragraph at lines 332--332
-[]\TU/lmtt/m/n/10.53937 ##  [1]          NA   0.9093042   0.8655600   0.7014032
-   1.1991076   1.1149060[] 
+Overfull \hbox (92.12033pt too wide) in paragraph at lines 291--291
+[]\TU/lmtt/m/n/10.53937 ## [13]  13.6730882  16.3692466  27.4418157  33.2735564
+  40.2709205  95.8151040[] 
  []
 
 
-Overfull \hbox (92.12033pt too wide) in paragraph at lines 332--332
-[]\TU/lmtt/m/n/10.53937 ##  [7]   2.0060562   2.6873412   4.2852944  11.2008425
-   3.8648072   9.7589807[] 
+Overfull \hbox (92.12036pt too wide) in paragraph at lines 304--304
+[]\TU/lmtt/m/n/10.53937 ##  [1]          NA   0.5299612   0.7117524   2.3793472
+   2.0289827   5.0632267[] 
  []
 
 
-Overfull \hbox (92.12033pt too wide) in paragraph at lines 332--332
-[]\TU/lmtt/m/n/10.53937 ## [13]  13.9544256  18.0472772  27.7213725  33.4998854
-  40.2743944  95.1521970[] 
+Overfull \hbox (92.12033pt too wide) in paragraph at lines 304--304
+[]\TU/lmtt/m/n/10.53937 ##  [7]   6.4834859   9.4154313  20.4873504  12.1327746
+  47.6669823  56.3116610[] 
  []
 
 
-Overfull \hbox (92.12036pt too wide) in paragraph at lines 345--345
-[]\TU/lmtt/m/n/10.53937 ##  [1]          NA   0.5367660   0.7057221   2.3770512
-   2.0285497   5.0915627[] 
+Overfull \hbox (92.12033pt too wide) in paragraph at lines 304--304
+[]\TU/lmtt/m/n/10.53937 ## [13]  26.5288909  29.9348935  37.4425330  81.6525643
+ 113.9471261 118.5246519[] 
  []
 
 
-Overfull \hbox (92.12033pt too wide) in paragraph at lines 345--345
-[]\TU/lmtt/m/n/10.53937 ##  [7]   6.5876690   9.5020914  20.3369769  12.7270155
-  48.8438452  56.7354946[] 
+Overfull \hbox (53.3882pt too wide) in paragraph at lines 317--317
+[]\TU/lmtt/m/n/10.53937 ##  [1]           NA 1.485518e+00 3.341815e+00 4.647112
+e+00 7.531493e+00[] 
  []
 
 
-Overfull \hbox (92.12033pt too wide) in paragraph at lines 345--345
-[]\TU/lmtt/m/n/10.53937 ## [13]  26.1812938  29.6711418  38.2317769  82.3386615
- 147.4454763 118.9068572[] 
+Overfull \hbox (53.38817pt too wide) in paragraph at lines 317--317
+[]\TU/lmtt/m/n/10.53937 ##  [6] 3.621552e+01 7.544977e+01 1.725721e+02 5.686858
+e+02 2.541384e+02[] 
  []
 
 
-Overfull \hbox (53.3882pt too wide) in paragraph at lines 358--358
-[]\TU/lmtt/m/n/10.53937 ##  [1]           NA 1.543211e+00 3.694320e+00 5.074814
-e+00 6.928469e+00[] 
+Overfull \hbox (53.38817pt too wide) in paragraph at lines 317--317
+[]\TU/lmtt/m/n/10.53937 ## [11] 5.151070e+02 1.783258e+03 1.759747e+03 5.258070
+e+03 1.519619e+04[] 
  []
 
 
-Overfull \hbox (53.38817pt too wide) in paragraph at lines 358--358
-[]\TU/lmtt/m/n/10.53937 ##  [6] 4.006296e+01 7.350215e+01 1.660965e+02 5.892989
-e+02 2.479563e+02[] 
- []
-
-
-Overfull \hbox (53.38817pt too wide) in paragraph at lines 358--358
-[]\TU/lmtt/m/n/10.53937 ## [11] 5.720678e+02 1.912574e+03 1.835334e+03 5.449767
-e+03 1.491577e+04[] 
- []
-
-
-Overfull \hbox (53.38817pt too wide) in paragraph at lines 358--358
-[]\TU/lmtt/m/n/10.53937 ## [16] 7.541347e+04 7.334727e+04 1.115412e+05 2.082175
-e+05 6.840184e+04[] 
+Overfull \hbox (53.38817pt too wide) in paragraph at lines 317--317
+[]\TU/lmtt/m/n/10.53937 ## [16] 6.720935e+04 6.922442e+04 1.040784e+05 2.281637
+e+05 7.793509e+04[] 
  []
 
 [5] (./SFBA_primer.aux)
@@ -1092,10 +1074,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Here is how much of TeX's memory you used:
  21078 strings out of 476919
  416515 string characters out of 5821839
- 875850 words of memory out of 5000000
+ 873850 words of memory out of 5000000
  40721 multiletter control sequences out of 15000+600000
  410041 words of font info for 100 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 101i,6n,123p,532b,873s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 101i,6n,123p,532b,893s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on SFBA_primer.pdf (5 pages).
