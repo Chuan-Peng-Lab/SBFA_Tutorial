@@ -1,9 +1,9 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.10.22)  8 JUL 2022 13:17
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.10.22)  29 JUL 2022 13:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**SFBA_primer.tex
-(./SFBA_primer.tex
+**SBFA_primer.tex
+(./SBFA_primer.tex
 LaTeX2e <2020-10-01> patch level 4
 L3 programming layer <2021-02-18> (/usr/local/texlive/2021/texmf-dist/tex/latex
 /ctex/ctexart.cls (/usr/local/texlive/2021/texmf-dist/tex/latex/ctex/config/cte
@@ -387,12 +387,35 @@ Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
 Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
-) (/usr/local/texlive/2021/texmf-dist/tex/latex/xurl/xurl.sty
-Package: xurl 2020/12/30 v 0.09a modify URL breaks
-(/usr/local/texlive/2021/texmf-dist/tex/latex/url/url.sty
-\Urlmuskip=\muskip19
-Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
-)) (/usr/local/texlive/2021/texmf-dist/tex/latex/bookmark/bookmark.sty
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
+Package: fancyvrb 2021/01/20 v3.7 verbatim text (tvz,hv)
+\FV@CodeLineNo=\count301
+\FV@InFile=\read2
+\FV@TabBox=\box52
+\c@FancyVerbLine=\count302
+\FV@StepNumber=\count303
+\FV@OutFile=\write3
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/framed/framed.sty
+Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
+\OuterFrameSep=\skip61
+\fb@frw=\dimen184
+\fb@frh=\dimen185
+\FrameRule=\dimen186
+\FrameSep=\dimen187
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2020/09/09 v1.2b Enhanced LaTeX Graphics (DPC,SPQR)
+(/usr/local/texlive/2021/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2020/08/30 v1.4c Standard LaTeX Graphics (DPC,SPQR)
+(/usr/local/texlive/2021/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: xetex.def on input line 105.
+)
+\Gin@req@height=\dimen188
+\Gin@req@width=\dimen189
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/bookmark/bookmark.sty
 Package: bookmark 2020-11-06 v1.29 PDF bookmarks (HO)
 (/usr/local/texlive/2021/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2021-02-27 v7.00k Hypertext links for LaTeX
@@ -416,9 +439,9 @@ Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
 ) (/usr/local/texlive/2021/texmf-dist/tex/latex/auxhook/auxhook.sty
 Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 )
-\@linkdim=\dimen184
-\Hy@linkcounter=\count301
-\Hy@pagecounter=\count302
+\@linkdim=\dimen190
+\Hy@linkcounter=\count304
+\Hy@pagecounter=\count305
 (/usr/local/texlive/2021/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2021-02-27 v7.00k Hyperref: PDFDocEncoding definition (HO)
 )
@@ -430,7 +453,7 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 ) (/usr/local/texlive/2021/texmf-dist/tex/generic/etexcmds/etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count303
+\Hy@SavedSpaceFactor=\count306
 (/usr/local/texlive/2021/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2021-02-27 v7.00k Hyperref: PDF Unicode definition (HO)
 )
@@ -443,18 +466,22 @@ Package hyperref Info: Plain pages OFF on input line 4207.
 Package hyperref Info: Backreferencing OFF on input line 4212.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4445.
-\c@Hy@tempcnt=\count304
+\c@Hy@tempcnt=\count307
+(/usr/local/texlive/2021/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip19
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
 LaTeX Info: Redefining \url on input line 4804.
-\XeTeXLinkMargin=\dimen185
+\XeTeXLinkMargin=\dimen191
 (/usr/local/texlive/2021/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 (/usr/local/texlive/2021/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count305
-\Field@Width=\dimen186
-\Fld@charsize=\dimen187
+\Fld@menulength=\count308
+\Field@Width=\dimen192
+\Fld@charsize=\dimen193
 Package hyperref Info: Hyper figures OFF on input line 6075.
 Package hyperref Info: Link nesting OFF on input line 6080.
 Package hyperref Info: Hyper index ON on input line 6083.
@@ -469,9 +496,9 @@ Package: atbegshi-ltx 2020/08/17 v1.0a Emulation of the original atbegshi packa
 ge
 with kernel methods
 )
-\Hy@abspage=\count306
-\c@Item=\count307
-\c@Hfootnote=\count308
+\Hy@abspage=\count309
+\c@Item=\count310
+\c@Hfootnote=\count311
 )
 Package hyperref Info: Driver (autodetected): hxetex.
 (/usr/local/texlive/2021/texmf-dist/tex/latex/hyperref/hxetex.def
@@ -480,11 +507,11 @@ File: hxetex.def 2021-02-27 v7.00k Hyperref driver for XeTeX
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
 )
 )
-\pdfm@box=\box52
-\c@Hy@AnnotLevel=\count309
-\HyField@AnnotCount=\count310
-\Fld@listcount=\count311
-\c@bookmark@seq@number=\count312
+\pdfm@box=\box53
+\c@Hy@AnnotLevel=\count312
+\HyField@AnnotCount=\count313
+\Fld@listcount=\count314
+\c@bookmark@seq@number=\count315
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
@@ -499,40 +526,14 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 86.
 )
-\Hy@SectionHShift=\skip61
+\Hy@SectionHShift=\skip62
 ) (/usr/local/texlive/2021/texmf-dist/tex/latex/bookmark/bkm-dvipdfm.def
 File: bkm-dvipdfm.def 2020-11-06 v1.29 bookmark driver for dvipdfm (HO)
-\BKM@id=\count313
-)) (/usr/local/texlive/2021/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
-Package: fancyvrb 2021/01/20 v3.7 verbatim text (tvz,hv)
-\FV@CodeLineNo=\count314
-\FV@InFile=\read2
-\FV@TabBox=\box53
-\c@FancyVerbLine=\count315
-\FV@StepNumber=\count316
-\FV@OutFile=\write3
-) (/usr/local/texlive/2021/texmf-dist/tex/latex/framed/framed.sty
-Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
-\OuterFrameSep=\skip62
-\fb@frw=\dimen188
-\fb@frh=\dimen189
-\FrameRule=\dimen190
-\FrameSep=\dimen191
-) (/usr/local/texlive/2021/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2020/09/09 v1.2b Enhanced LaTeX Graphics (DPC,SPQR)
-(/usr/local/texlive/2021/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2020/08/30 v1.4c Standard LaTeX Graphics (DPC,SPQR)
-(/usr/local/texlive/2021/texmf-dist/tex/latex/graphics/trig.sty
-Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
-) (/usr/local/texlive/2021/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
-File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
-)
-Package graphics Info: Driver file: xetex.def on input line 105.
-)
-\Gin@req@height=\dimen192
-\Gin@req@width=\dimen193
-) (./SFBA_primer.aux)
-\openout1 = `SFBA_primer.aux'.
+\BKM@id=\count316
+)) (/usr/local/texlive/2021/texmf-dist/tex/latex/xurl/xurl.sty
+Package: xurl 2020/12/30 v 0.09a modify URL breaks
+) (./SBFA_primer.aux)
+\openout1 = `SBFA_primer.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 110.
 LaTeX Font Info:    ... okay on input line 110.
@@ -885,7 +886,7 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 112
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/usr/local/texlive/2021/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
-) (./SFBA_primer.toc
+) (./SBFA_primer.toc
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
 (Font)              scaled to size 7.37756pt on input line 3.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
@@ -904,7 +905,7 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 (Font)              scaled to size 5.26912pt on input line 3.
 )
 \tf@toc=\write4
-\openout4 = `SFBA_primer.toc'.
+\openout4 = `SBFA_primer.toc'.
 
 
 Package fontspec Warning: Font "STFangsong" does not contain requested Script
@@ -1008,76 +1009,76 @@ Overfull \hbox (92.12033pt too wide) in paragraph at lines 230--230
 
 [3]
 Overfull \hbox (92.12036pt too wide) in paragraph at lines 291--291
-[]\TU/lmtt/m/n/10.53937 ##  [1]          NA   0.8789661   0.8443724   0.6834420
-   1.2285291   1.1077484[] 
+[]\TU/lmtt/m/n/10.53937 ##  [1]          NA   0.8953323   0.8650357   0.6663430
+   1.2198559   1.0933056[] 
  []
 
 
 Overfull \hbox (92.12033pt too wide) in paragraph at lines 291--291
-[]\TU/lmtt/m/n/10.53937 ##  [7]   2.0256113   2.6630755   4.3115568  11.2786746
-   3.8717980   9.6159303[] 
+[]\TU/lmtt/m/n/10.53937 ##  [7]   1.9655117   2.6025054   4.1638685  11.1578821
+   4.0817921   9.8094105[] 
  []
 
 [4]
 Overfull \hbox (92.12033pt too wide) in paragraph at lines 291--291
-[]\TU/lmtt/m/n/10.53937 ## [13]  13.6730882  16.3692466  27.4418157  33.2735564
-  40.2709205  95.8151040[] 
+[]\TU/lmtt/m/n/10.53937 ## [13]  13.6773648  16.5886212  27.4503838  33.1264474
+  39.9170928  95.8418954[] 
  []
 
 
 Overfull \hbox (92.12036pt too wide) in paragraph at lines 304--304
-[]\TU/lmtt/m/n/10.53937 ##  [1]          NA   0.5299612   0.7117524   2.3793472
-   2.0289827   5.0632267[] 
+[]\TU/lmtt/m/n/10.53937 ##  [1]          NA   0.5443669   0.7204119   2.3970343
+   2.0215187   5.1356384[] 
  []
 
 
 Overfull \hbox (92.12033pt too wide) in paragraph at lines 304--304
-[]\TU/lmtt/m/n/10.53937 ##  [7]   6.4834859   9.4154313  20.4873504  12.1327746
-  47.6669823  56.3116610[] 
+[]\TU/lmtt/m/n/10.53937 ##  [7]   6.4251278   9.3556566  20.5462128  12.0952198
+  49.0483067  56.3505902[] 
  []
 
 
 Overfull \hbox (92.12033pt too wide) in paragraph at lines 304--304
-[]\TU/lmtt/m/n/10.53937 ## [13]  26.5288909  29.9348935  37.4425330  81.6525643
- 113.9471261 118.5246519[] 
+[]\TU/lmtt/m/n/10.53937 ## [13]  26.8491331  29.9237771  38.6972787  83.8987965
+ 115.9720459 120.5988359[] 
  []
 
 
 Overfull \hbox (53.3882pt too wide) in paragraph at lines 317--317
-[]\TU/lmtt/m/n/10.53937 ##  [1]           NA 1.485518e+00 3.341815e+00 4.647112
-e+00 7.531493e+00[] 
+[]\TU/lmtt/m/n/10.53937 ##  [1]           NA 1.462711e+00 3.289766e+00 4.816308
+e+00 7.550150e+00[] 
  []
 
 
 Overfull \hbox (53.38817pt too wide) in paragraph at lines 317--317
-[]\TU/lmtt/m/n/10.53937 ##  [6] 3.621552e+01 7.544977e+01 1.725721e+02 5.686858
-e+02 2.541384e+02[] 
+[]\TU/lmtt/m/n/10.53937 ##  [6] 3.998117e+01 7.530245e+01 2.873114e+02 5.562483
+e+02 2.287760e+02[] 
  []
 
 
 Overfull \hbox (53.38817pt too wide) in paragraph at lines 317--317
-[]\TU/lmtt/m/n/10.53937 ## [11] 5.151070e+02 1.783258e+03 1.759747e+03 5.258070
-e+03 1.519619e+04[] 
+[]\TU/lmtt/m/n/10.53937 ## [11] 5.631946e+02 1.390083e+03 1.649642e+03 5.738990
+e+03 1.777621e+04[] 
  []
 
 
 Overfull \hbox (53.38817pt too wide) in paragraph at lines 317--317
-[]\TU/lmtt/m/n/10.53937 ## [16] 6.720935e+04 6.922442e+04 1.040784e+05 2.281637
-e+05 7.793509e+04[] 
+[]\TU/lmtt/m/n/10.53937 ## [16] 8.679439e+04 7.243691e+04 2.030460e+05 2.016384
+e+05 7.473701e+04[] 
  []
 
-[5] (./SFBA_primer.aux)
+[5] (./SBFA_primer.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 21078 strings out of 476919
- 416515 string characters out of 5821839
- 873850 words of memory out of 5000000
- 40721 multiletter control sequences out of 15000+600000
+ 21077 strings out of 476919
+ 416498 string characters out of 5821839
+ 873586 words of memory out of 5000000
+ 40720 multiletter control sequences out of 15000+600000
  410041 words of font info for 100 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  101i,6n,123p,532b,893s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on SFBA_primer.pdf (5 pages).
+Output written on SBFA_primer.pdf (5 pages).
