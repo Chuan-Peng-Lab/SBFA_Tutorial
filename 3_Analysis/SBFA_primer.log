@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.10.22)  29 JUL 2022 13:49
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.10.22)  6 AUG 2022 15:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -950,25 +950,25 @@ LaTeX Font Info:    Font shape `TU/STFangsong(0)/m/n' will be
 [1
 
 ]
-Overfull \hbox (114.25323pt too wide) in paragraph at lines 152--152
+Overfull \hbox (114.25323pt too wide) in paragraph at lines 158--158
 []\TU/lmtt/m/n/10.53937 ## -- Column specification ----------------------------
 ----------------------------[] 
  []
 
 
-Overfull \hbox (108.71986pt too wide) in paragraph at lines 152--152
+Overfull \hbox (108.71986pt too wide) in paragraph at lines 158--158
 []\TU/lmtt/m/n/10.53937 ## dbl (9): Match_Bad, Match_Good, Match_Neutral, Misma
 tch_Bad, Mismatch_Good, ...[] 
  []
 
 
-Overfull \hbox (64.45451pt too wide) in paragraph at lines 152--152
+Overfull \hbox (64.45451pt too wide) in paragraph at lines 158--158
 []\TU/lmtt/m/n/10.53937 ## i Use []spec()[] to retrieve the full column specifi
 cation for this data.[] 
  []
 
 
-Overfull \hbox (119.78621pt too wide) in paragraph at lines 152--152
+Overfull \hbox (119.78621pt too wide) in paragraph at lines 158--158
 []\TU/lmtt/m/n/10.53937 ## i Specify the column types or set []show_col_types =
  FALSE[] to quiet this message.[] 
  []
@@ -976,109 +976,43 @@ Overfull \hbox (119.78621pt too wide) in paragraph at lines 152--152
 LaTeX Font Info:    Font shape `TU/SongtiSCLight(0)/m/sl' in size <10.53937> no
 t available
 (Font)              Font shape `TU/SongtiSCLight(0)/m/it' tried instead on inpu
-t line 188.
+t line 184.
 [2]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10.53937> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 191.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 197.
 
 LaTeX Font Warning: Font shape `TU/lmtt/bx/it' in size <10.53937> not available
 
-(Font)              Font shape `TU/lmtt/b/sl' tried instead on input line 191.
+(Font)              Font shape `TU/lmtt/b/sl' tried instead on input line 197.
 
 
 LaTeX Font Warning: Font shape `TU/STFangsong(0)/b/it' undefined
-(Font)              using `TU/STFangsong(0)/m/n' instead on input line 191.
-
-
-Overfull \hbox (92.12042pt too wide) in paragraph at lines 230--230
-[]\TU/lmtt/m/n/10.53937 ##  [1]          NA    1.079341    2.095059    3.339921
-    6.652698   19.097998[] 
- []
-
-
-Overfull \hbox (92.12033pt too wide) in paragraph at lines 230--230
-[]\TU/lmtt/m/n/10.53937 ##  [7]   31.855000   49.752936  130.961355   58.188628
-   93.428773  239.350270[] 
- []
-
-
-Overfull \hbox (92.12033pt too wide) in paragraph at lines 230--230
-[]\TU/lmtt/m/n/10.53937 ## [13]  127.216734  250.586118  571.531998 1522.706898
- 2032.527877 2787.948423[] 
- []
+(Font)              using `TU/STFangsong(0)/m/n' instead on input line 197.
 
 [3]
-Overfull \hbox (92.12036pt too wide) in paragraph at lines 291--291
-[]\TU/lmtt/m/n/10.53937 ##  [1]          NA   0.8953323   0.8650357   0.6663430
-   1.2198559   1.0933056[] 
+File: SBFA_primer_files/figure-latex/unnamed-chunk-7-1.pdf Graphic file (type p
+df)
+<use SBFA_primer_files/figure-latex/unnamed-chunk-7-1.pdf>
+[4] [5] [6]
+Underfull \vbox (badness 10000) detected at line 380
  []
 
-
-Overfull \hbox (92.12033pt too wide) in paragraph at lines 291--291
-[]\TU/lmtt/m/n/10.53937 ##  [7]   1.9655117   2.6025054   4.1638685  11.1578821
-   4.0817921   9.8094105[] 
- []
-
-[4]
-Overfull \hbox (92.12033pt too wide) in paragraph at lines 291--291
-[]\TU/lmtt/m/n/10.53937 ## [13]  13.6773648  16.5886212  27.4503838  33.1264474
-  39.9170928  95.8418954[] 
- []
-
-
-Overfull \hbox (92.12036pt too wide) in paragraph at lines 304--304
-[]\TU/lmtt/m/n/10.53937 ##  [1]          NA   0.5443669   0.7204119   2.3970343
-   2.0215187   5.1356384[] 
- []
-
-
-Overfull \hbox (92.12033pt too wide) in paragraph at lines 304--304
-[]\TU/lmtt/m/n/10.53937 ##  [7]   6.4251278   9.3556566  20.5462128  12.0952198
-  49.0483067  56.3505902[] 
- []
-
-
-Overfull \hbox (92.12033pt too wide) in paragraph at lines 304--304
-[]\TU/lmtt/m/n/10.53937 ## [13]  26.8491331  29.9237771  38.6972787  83.8987965
- 115.9720459 120.5988359[] 
- []
-
-
-Overfull \hbox (53.3882pt too wide) in paragraph at lines 317--317
-[]\TU/lmtt/m/n/10.53937 ##  [1]           NA 1.462711e+00 3.289766e+00 4.816308
-e+00 7.550150e+00[] 
- []
-
-
-Overfull \hbox (53.38817pt too wide) in paragraph at lines 317--317
-[]\TU/lmtt/m/n/10.53937 ##  [6] 3.998117e+01 7.530245e+01 2.873114e+02 5.562483
-e+02 2.287760e+02[] 
- []
-
-
-Overfull \hbox (53.38817pt too wide) in paragraph at lines 317--317
-[]\TU/lmtt/m/n/10.53937 ## [11] 5.631946e+02 1.390083e+03 1.649642e+03 5.738990
-e+03 1.777621e+04[] 
- []
-
-
-Overfull \hbox (53.38817pt too wide) in paragraph at lines 317--317
-[]\TU/lmtt/m/n/10.53937 ## [16] 8.679439e+04 7.243691e+04 2.030460e+05 2.016384
-e+05 7.473701e+04[] 
- []
-
-[5] (./SBFA_primer.aux)
+[7]
+File: SBFA_primer_files/figure-latex/unnamed-chunk-13-1.pdf Graphic file (type 
+pdf)
+<use SBFA_primer_files/figure-latex/unnamed-chunk-13-1.pdf>
+[8] (./SBFA_primer.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 21077 strings out of 476919
- 416498 string characters out of 5821839
- 873586 words of memory out of 5000000
- 40720 multiletter control sequences out of 15000+600000
+ 21095 strings out of 476919
+ 417206 string characters out of 5821839
+ 876652 words of memory out of 5000000
+ 40734 multiletter control sequences out of 15000+600000
  410041 words of font info for 100 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 101i,6n,123p,532b,893s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 101i,6n,123p,532b,448s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on SBFA_primer.pdf (5 pages).
+Output written on SBFA_primer.pdf (8 pages).

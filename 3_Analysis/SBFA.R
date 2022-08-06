@@ -1,12 +1,14 @@
 ########## 安装和载入需要的包
 # install.packages(c("tidyverse", "BayesFactor", "here"))
-library(BayesFactor)
+library(BayesFactor)#计算T检验和方差分析的贝叶斯因子
 library(tidyverse)
+library(here)
+here()
 # library(here)
 ########### 导入数据
-df <- read_csv("/Users/zhengyuanrui/Desktop/SBFA/data/df.js.sum_jasp.csv")
+df <- read_csv(here("2_Data/df.js.sum_jasp.csv"))
 
-
+options(scipen = 9)
 ########## 数据的基本信息
 subj_num <- unique(df$subj_idx) # 每个被试的编号
 n <- length(unique(df$subj_idx)) # 一共有20个被试
@@ -40,9 +42,9 @@ bf_output
 ########## （重复测量）方差分析
 
 df_anova <- df %>%
-  select(subj_idx:Mismatch_Good) %>%
+  select(subj_idx:Mismatch_Neutral) %>%
   pivot_longer(
-    cols = Match_Bad:Mismatch_Good, names_to = c("Matchness", "Valence"),
+    cols = Match_Bad:Mismatch_Neutral, names_to = c("Matchness", "Valence"),
     names_sep = "_", values_to = "rt"
   )
 
@@ -58,6 +60,7 @@ BFs_valence <- rep(NA, length(subj_num))
 BFs_int <- rep(NA, length(subj_num))
 
 
+options(scipen = 9)
 
 for (i in seq_along(subj_num)) {
   if (i == 1) {
@@ -69,17 +72,21 @@ for (i in seq_along(subj_num)) {
   df.selected$subj_idx <- as.factor(df.selected$subj_idx)
   df.selected$Matchness <- as.factor(df.selected$Matchness)
   df.selected$Valence <- as.factor(df.selected$Valence)
-  bayesfactors <- bf <- anovaBF(rt ~ Valence * Matchness + subj_idx,
-    data = data.frame(df.selected),
-    whichRandom = "subj_idx"
-  )
-  BFs_match[i] <- bayesfactors[1]
-  BFs_valence[i] <- bayesfactors[2]
-  BFs_int[i] <- bayesfactors[4] / bayesfactors[3]
+  bayesfactors <- generalTestBF(rt ~ Valence*Matchness*subj_idx - subj_idx:Valence:Matchness,
+                                       data = data.frame(df.selected), whichRandom = "subj_idx",
+                                       neverExclude = "subj_idx", whichModels = "all", progress = FALSE)
+  BFs_match[i] <- bayesfactors[4]/bayesfactors[1]
+  BFs_valence[i] <- bayesfactors[4]/bayesfactors[2]
+  BFs_int[i] <- bayesfactors[7] / bayesfactors[4]
 }
 
-BFs_match
+output <- tibble(BFs_int, BFs_valence, BFs_match)
+output$BFs_int <- round(output$BFs_int, digits = 2)
+output$BFs_valence <- round(output$BFs_valence, digits = 2)
+output$BFs_match <- round(output$BFs_match, digits = 2)
 
-BFs_valence
+head(output)
 
-BFs_int
+output %>% pivot_longer(BFs_int:BFs_match, names_to = "Effect", values_to = "Bayes Factor")
+
+
