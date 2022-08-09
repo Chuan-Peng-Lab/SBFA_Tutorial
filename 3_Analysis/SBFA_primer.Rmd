@@ -13,6 +13,9 @@ output:
     number_sections: yes
     toc: yes
 ---
+```{r}
+rm(list = ls())
+```
 
 # 下载和安装需要的R语言程序包
 ```{r message=FALSE, warning=FALSE}
@@ -26,22 +29,93 @@ options(scipen = 9)#将科学计数法改为在万后9位
 
 # 导入数据
 
-```{r}
-df <- readr::read_csv(here("2_Data", "df.js.sum_jasp.csv"))
-#T检验使用数据
+```{r message=FALSE}
+df <- readr::read_csv(here("2_Data", "df.sum_jasp.csv"))
 ```
 ## 数据长宽数据转换
+
+### 因变量为RT的数据整理
 ```{r}
-df_anova <- df %>%
-  dplyr::select(subj_idx:Mismatch_Neutral) %>%
+#分析因变量为RT的使用数据
+df.RT <- df %>%
+  #选择被试信息以及RT_开头的列
+  dplyr::select(subj_idx, starts_with("RT_")) %>%
+  #RT_Bad_Match到RT_Good_Nonmatch列转换为长数据，列名为condition，值名为rt
   tidyr::pivot_longer(
-    cols = Match_Bad:Mismatch_Neutral, 
-    names_to = c("Matchness", "Valence"),
-    names_sep = "_", values_to = "rt"
-  )#anova使用数据
+    cols = RT_Bad_Match:RT_Neutral_Nonmatch, 
+    names_to = "condition",
+    values_to = "rt"
+  ) %>% 
+  #将condition列拆分为三列，DV_Name为因变量名称
+  #Valence是道德信息，Matchness是匹配信息
+  tidyr::separate(col = condition, 
+                 into = c("DV_Name", "Valence", "Matchness"), 
+                 sep = "_") %>% 
+  #类型为character的转换为因子类型，便于后续分析
+  dplyr::mutate_if(is.character, as.factor)
+
+head(df.RT)
+```
+
+### 因变量为ACC的数据整理
+```{r}
+df.ACC <- df %>% 
+  dplyr::select(subj_idx, starts_with("ACC_")) %>%
+  tidyr::pivot_longer(
+    cols = ACC_Bad_Match:ACC_Neutral_Nonmatch, 
+    names_to = "condition",
+    values_to = "ACC"
+  ) %>% 
+  tidyr::separate(col = condition, 
+                 into = c("DV_Name", "Valence", "Matchness"), 
+                 sep = "_") %>% 
+  dplyr::mutate_if(is.character, as.factor)
+
+head(df.ACC)
+```
+
+### 因变量为dPrime的数据整理
+```{r}
+df.dPrime <- df %>% 
+  dplyr::select(subj_idx, starts_with("dPrime_")) %>%
+  tidyr::pivot_longer(
+    cols = dPrime_Bad:dPrime_Neutral, 
+    names_to = "condition",
+    values_to = "dPrime"
+  ) %>% 
+  tidyr::separate(col = condition, 
+                 into = c("DV_Name", "Valence"), 
+                 sep = "_") %>% 
+  dplyr::mutate_if(is.character, as.factor)
+
+head(df.dPrime)
 ```
 
 
+# 正确的BF计算
+```{r}
+bayesfactors <- BayesFactor::generalTestBF(
+    rt ~ Valence*Matchness*subj_idx - subj_idx:Valence:Matchness,
+    data = data.frame(df.RT), 
+    whichRandom = "subj_idx",
+    neverExclude = "subj_idx", 
+    whichModels = "all")
+
+bayesfactors
+```
+```{r}
+#感兴趣的效应都要先除零模型（仅包括随机效应的模型）
+null <- bayesfactors[8]
+
+#全模型
+full <- bayesfactors[7]
+BF_full.n <- full/null#全模型与null对比
+BF_excinx.n <- bayesfactors[4]/null
+BF_inx <- BF_full.n/BF_excinx.n
+BF_inx
+```
+
+#以下内容还未修改
 # 查看数据的被试信息
 ```{r}
 subj_num <- unique(df$subj_idx) # 每个被试的编号
@@ -116,8 +190,8 @@ tibble(bf_output) %>%
 # （重复测量）方差分析的R语言实现
 ## 数据的基本信息
 ```{r}
-subj_num <- unique(df_anova$subj_idx) # 每个被试的编号
-n <- length(unique(df_anova$subj_idx)) # 一共有20个被试
+subj_num <- unique(df.RT$subj_idx) # 每个被试的编号
+n <- length(unique(df_RT$subj_idx)) # 一共有20个被试
 ```
 
 生成三个向量用来储存两个主效应和交互项
@@ -134,9 +208,9 @@ for (i in seq_along(subj_num)) {
   if (i == 1) {
     next
   }
-  df_anova$subj_idx <- as.character(df_anova$subj_idx)
-  id <- unique(df_anova$subj_idx)[1:i]
-  df.selected <- df_anova %>% dplyr::filter(subj_idx %in% id)
+  df_anova$subj_idx <- as.character(df.RT$subj_idx)
+  id <- unique(df.RT$subj_idx)[1:i]
+  df.selected <- df.RT %>% dplyr::filter(subj_idx %in% id)
   df.selected$subj_idx <- as.factor(df.selected$subj_idx)
   df.selected$Matchness <- as.factor(df.selected$Matchness)
   df.selected$Valence <- as.factor(df.selected$Valence)
