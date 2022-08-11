@@ -27,6 +27,12 @@ here()
 options(scipen = 9)#将科学计数法改为在万后9位
 ```
 
+## BayesFacotr包版本
+```{r}
+packageVersion("BayesFactor")
+```
+
+
 # 导入数据
 
 ```{r message=FALSE}
@@ -113,6 +119,13 @@ BF_full.n <- full/null#全模型与null对比
 BF_excinx.n <- bayesfactors[4]/null
 BF_inx <- BF_full.n/BF_excinx.n
 BF_inx
+```
+```{r}
+ttestBF(df$RT_Good_Match, df$RT_Neutral_Match, paired = TRUE, nullInterval = c(Inf, 0))
+```
+```{r}
+a <- ttestBF(df$RT_Good_Match, df$RT_Neutral_Match, paired = TRUE, nullInterval = c(0, Inf))
+a[2]
 ```
 
 #以下内容还未修改
