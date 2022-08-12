@@ -119,31 +119,38 @@ BF_full.n <- full/null#全模型与null对比
 BF_excinx.n <- bayesfactors[4]/null
 BF_inx <- BF_full.n/BF_excinx.n
 BF_inx
+
+BF_m.n <- bayesfactors[2]/null
+BF_excinx.n/BF_m.n
+
+BF_v.n <- bayesfactors[1]/null
+BF_excinx.n/BF_v.n
 ```
+
 ```{r}
-ttestBF(df$RT_Good_Match, df$RT_Neutral_Match, paired = TRUE, nullInterval = c(Inf, 0))
+ttestBF(df$RT_Good_Match, df$RT_Neutral_Match, paired = TRUE, nullInterval = c(Inf, 0))[2]
 ```
 ```{r}
 a <- ttestBF(df$RT_Good_Match, df$RT_Neutral_Match, paired = TRUE, nullInterval = c(0, Inf))
 a[2]
 ```
 
-#以下内容还未修改
 # 查看数据的被试信息
 ```{r}
-subj_num <- unique(df$subj_idx) # 每个被试的编号
-n <- length(unique(df$subj_idx)) # 一共有20个被试
+subj_num <- unique(df.RT$subj_idx) # 每个被试的编号
+n <- length(unique(df.RT$subj_idx)) # 一共有20个被试
+n
 ```
 
 #（配对样本）T检验的R语言实现
 ## good_match条件与bad_match条件的对比
 先建立一个空的列表，用来储存后续的贝叶斯因子。列表长度为目前数据的样本量
 ```{r}
-bf_output <- rep(NA, length(subj_num)) ### 先建立一个列表
+bf_output <- rep(1, length(subj_num)) ### 先建立一个列表
 ```
 
 
-```{r}
+```{r message=FALSE}
 for (i in seq_along(subj_num)) {#i遍历subj_num
   if (i == 1) {
     next
@@ -157,11 +164,11 @@ for (i in seq_along(subj_num)) {#i遍历subj_num
   df.selected <- df %>% filter(subj_idx %in% id)
   #转换为因子型
   df.selected$subj_idx <- as.factor(df.selected$subj_idx)
-  bayesfactors <- BayesFactor::ttestBF(
-    x = df.selected$Match_Bad, y = df.selected$Match_Good,
-    paired = TRUE
-  )#计算贝叶斯因子
-  bf_output[i] <- bayesfactors[1]
+  bayesfactors <- ttestBF(df.selected$RT_Good_Match,
+                          df.selected$RT_Neutral_Match, 
+                          paired = TRUE, 
+                          nullInterval = c(0, Inf))#计算贝叶斯因子
+  bf_output[i] <- bayesfactors[2]
 }
 ```
 
@@ -170,14 +177,16 @@ for (i in seq_along(subj_num)) {#i遍历subj_num
 tibble(bf_output) %>% 
   dplyr::mutate(n = 1:nrow(.)) %>% 
   dplyr::rename("Bayes Factor" = "bf_output") %>% 
-  dplyr::mutate(`Bayes Factor` = tidyr::replace_na(`Bayes Factor`, 1)) %>% 
-   ggplot(aes(x = n, y = `Bayes Factor`)) + 
+  dplyr::mutate(logBF = log(`Bayes Factor`)) %>% 
+   ggplot(aes(x = n, y = logBF)) + 
   geom_point(size = 3) + 
   geom_line() + 
   geom_hline(aes(yintercept = 10), linetype = "dashed") + 
+  geom_hline(aes(yintercept = 1/10), linetype = "dashed") +
   scale_y_continuous(
-    limits = c(1, 6000),
-    breaks = c(10, 1000, 2000, 3000, 4000, 5000, 6000)) + 
+    limits = c(0, 12),
+    breaks = c(1/10, 1, 5, 10)) + 
+  ylab(label = "log(BF_10)") + 
    theme(
     plot.margin = unit(c(1, 1, 1, 1), "cm"),
     plot.background = element_rect(fill = "white", color = NA),
@@ -198,22 +207,21 @@ tibble(bf_output) %>%
     legend.margin = margin(t = 5, l = 5, r = 5, b = 5),
     legend.key = element_rect(color = NA, fill = NA))
 ```
-
-
 # （重复测量）方差分析的R语言实现
 ## 数据的基本信息
 ```{r}
 subj_num <- unique(df.RT$subj_idx) # 每个被试的编号
-n <- length(unique(df_RT$subj_idx)) # 一共有20个被试
+n <- length(unique(df.RT$subj_idx)) # 一共有20个被试
+n
 ```
 
 生成三个向量用来储存两个主效应和交互项
 ```{r}
-BFs_match <- rep(NA, length(subj_num))
+BFs_match <- rep(1, length(subj_num))
 
-BFs_valence <- rep(NA, length(subj_num))
+BFs_valence <- rep(1, length(subj_num))
 
-BFs_int <- rep(NA, length(subj_num))
+BFs_int <- rep(1, length(subj_num))
 ```
 
 ```{r}
@@ -221,7 +229,7 @@ for (i in seq_along(subj_num)) {
   if (i == 1) {
     next
   }
-  df_anova$subj_idx <- as.character(df.RT$subj_idx)
+  df.RT$subj_idx <- as.character(df.RT$subj_idx)
   id <- unique(df.RT$subj_idx)[1:i]
   df.selected <- df.RT %>% dplyr::filter(subj_idx %in% id)
   df.selected$subj_idx <- as.factor(df.selected$subj_idx)
@@ -234,9 +242,15 @@ for (i in seq_along(subj_num)) {
     neverExclude = "subj_idx", 
     whichModels = "all", progress = FALSE)
   
-  BFs_match[i] <- bayesfactors[4]/bayesfactors[1]#计算Matchness主效应的BF
-  BFs_valence[i] <- bayesfactors[4]/bayesfactors[2]#计算Valence的BF
-  BFs_int[i] <- bayesfactors[7] / bayesfactors[4]#计算交互项的BF
+  null <- bayesfactors[8]
+  full <- bayesfactors[7]#全模型
+  BF_full.n <- full/null#全模型与null对比
+  BF_excinx.n <- bayesfactors[4]/null
+  BF_m.n <- bayesfactors[2]/null
+  BF_v.n <- bayesfactors[1]/null
+  BFs_match[i] <- BF_excinx.n/BF_v.n#计算Matchness主效应的BF
+  BFs_valence[i] <- BF_excinx.n/BF_m.n#计算Valence的BF
+  BFs_int[i] <- BF_full.n/BF_excinx.n#计算交互项的BF
 }
 ```
 
@@ -249,24 +263,27 @@ aov_output$BFs_match <- round(aov_output$BFs_match, digits = 2)
 head(aov_output)#查看数据
 ```
 ## 做折线图
-
+### 长宽数据、log变换
 ```{r}
 dat_plot <- aov_output %>% dplyr::mutate(n = 1:nrow(.)) %>% 
   tidyr::pivot_longer(BFs_int:BFs_match, names_to = "Effect", 
                values_to = "Bayes Factor") %>% 
-  dplyr::mutate(`Bayes Factor` = tidyr::replace_na(`Bayes Factor`, 1))
-  
+  dplyr::mutate(`logBF` = log(`Bayes Factor`))
+a <- dat_plot %>% 
+  filter(Effect == "BFs_int") 
+a
 ```
 
 ```{r fig.height=4, fig.width=4}
-dat_plot %>% dplyr::filter(Effect == "BFs_match") %>% 
-  ggplot(aes(x = n, y = `Bayes Factor`)) + 
+dat_plot %>% dplyr::filter(Effect == "BFs_int") %>% 
+  ggplot(aes(x = n, y = logBF)) + 
   geom_point(size = 3) + 
   geom_line() + 
-  geom_hline(aes(yintercept = 10), linetype = "dashed") + 
+  ylab(label = "log(BF_10)") + 
+  ggtitle("The Bayes Factor of RT Interaction Effect") + 
   scale_y_continuous(
-    limits = c(-10, 500),
-    breaks = c(10, 100, 200, 300, 400, 500)) + 
+    limits = c(0, 25),
+    breaks = c(1/10, 1, 10, 20)) + 
    theme(
     plot.margin = unit(c(1, 1, 1, 1), "cm"),
     plot.background = element_rect(fill = "white", color = NA),
@@ -286,8 +303,7 @@ dat_plot %>% dplyr::filter(Effect == "BFs_match") %>%
     legend.text = element_text(size = 15),
     legend.margin = margin(t = 5, l = 5, r = 5, b = 5),
     legend.key = element_rect(color = NA, fill = NA))
-# ggsave("Match_maineffect.png", width = 10, height = 7, dpi = 300)
-  
+# ggsave("RT_inx.png", width = 10, height = 7, dpi = 300)
 ```
 
 
