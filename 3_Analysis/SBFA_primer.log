@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.10.22)  12 AUG 2022 18:39
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.10.22)  13 AUG 2022 16:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -957,55 +957,55 @@ t line 196.
 [2] [3] [4]
 Overfull \hbox (357.71262pt too wide) in paragraph at lines 308--308
 []\TU/lmtt/m/n/10.53937 ## [1] Valence + subj_idx + Valence:subj_idx + Matchnes
-s:subj_idx                                 : 10977014             ±0.81%[] 
+s:subj_idx                                 : 11037988             ±0.84%[] 
  []
 
 
-Overfull \hbox (357.7126pt too wide) in paragraph at lines 308--308
+Overfull \hbox (352.17944pt too wide) in paragraph at lines 308--308
 []\TU/lmtt/m/n/10.53937 ## [2] Matchness + subj_idx + Valence:subj_idx + Matchn
-ess:subj_idx                               : 2110366              ±0.86%[] 
+ess:subj_idx                               : 2115564              ±1.1%[] 
  []
 
 
 Overfull \hbox (357.71255pt too wide) in paragraph at lines 308--308
 []\TU/lmtt/m/n/10.53937 ## [3] Valence:Matchness + subj_idx + Valence:subj_idx 
-+ Matchness:subj_idx                       : 57644284203          ±1.88%[] 
++ Matchness:subj_idx                       : 56541278372          ±1.45%[] 
  []
 
 
 Overfull \hbox (357.71255pt too wide) in paragraph at lines 308--308
 []\TU/lmtt/m/n/10.53937 ## [4] Valence + Matchness + subj_idx + Valence:subj_id
-x + Matchness:subj_idx                     : 5508040758           ±0.97%[] 
+x + Matchness:subj_idx                     : 5598458862           ±1.28%[] 
  []
 
 
-Overfull \hbox (352.17934pt too wide) in paragraph at lines 308--308
+Overfull \hbox (357.7125pt too wide) in paragraph at lines 308--308
 []\TU/lmtt/m/n/10.53937 ## [5] Valence + Valence:Matchness + subj_idx + Valence
-:subj_idx + Matchness:subj_idx             : 3764021771844292     ±1.4%[] 
+:subj_idx + Matchness:subj_idx             : 3707760814032804     ±1.11%[] 
  []
 
 
-Overfull \hbox (352.17934pt too wide) in paragraph at lines 308--308
+Overfull \hbox (357.7125pt too wide) in paragraph at lines 308--308
 []\TU/lmtt/m/n/10.53937 ## [6] Matchness + Valence:Matchness + subj_idx + Valen
-ce:subj_idx + Matchness:subj_idx           : 157308774737868      ±1.7%[] 
+ce:subj_idx + Matchness:subj_idx           : 165962639380496      ±3.73%[] 
  []
 
 
 Overfull \hbox (357.71243pt too wide) in paragraph at lines 308--308
 []\TU/lmtt/m/n/10.53937 ## [7] Valence + Matchness + Valence:Matchness + subj_i
-dx + Valence:subj_idx + Matchness:subj_idx : 14195239381613205504 ±2.47%[] 
+dx + Valence:subj_idx + Matchness:subj_idx : 13767175756601892864 ±1.65%[] 
  []
 
 
-Overfull \hbox (352.17949pt too wide) in paragraph at lines 308--308
+Overfull \hbox (357.71265pt too wide) in paragraph at lines 308--308
 []\TU/lmtt/m/n/10.53937 ## [8] subj_idx + Valence:subj_idx + Matchness:subj_idx
-                                           : 8861.891             ±0.3%[] 
+                                           : 8880.865             ±0.31%[] 
  []
 
 [5]
 Overfull \hbox (302.38075pt too wide) in paragraph at lines 333--333
 []\TU/lmtt/m/n/10.53937 ## [1] Valence + Matchness + Valence:Matchness + subj_i
-dx + Valence:subj_idx + Matchness:subj_idx : 2577184884 ±2.69%[] 
+dx + Valence:subj_idx + Matchness:subj_idx : 2459100995 ±2.13%[] 
  []
 
 
@@ -1015,9 +1015,9 @@ _idx + Matchness:subj_idx[]
  []
 
 
-Overfull \hbox (180.65105pt too wide) in paragraph at lines 351--351
+Overfull \hbox (175.11787pt too wide) in paragraph at lines 351--351
 []\TU/lmtt/m/n/10.53937 ## [1] Valence + Matchness + subj_idx + Valence:subj_id
-x + Matchness:subj_idx : 2609.994 ±1.37%[] 
+x + Matchness:subj_idx : 2646.32 ±1.74%[] 
  []
 
 
@@ -1029,7 +1029,7 @@ chness:subj_idx[]
 
 Overfull \hbox (180.65105pt too wide) in paragraph at lines 369--369
 []\TU/lmtt/m/n/10.53937 ## [1] Valence + Matchness + subj_idx + Valence:subj_id
-x + Matchness:subj_idx : 501.7795 ±1.33%[] 
+x + Matchness:subj_idx : 507.1992 ±1.59%[] 
  []
 
 
@@ -1059,7 +1059,7 @@ File: SBFA_primer_files/figure-latex/unnamed-chunk-15-1.pdf Graphic file (type
 pdf)
 <use SBFA_primer_files/figure-latex/unnamed-chunk-15-1.pdf>
 [10] [11] [12]
-Underfull \vbox (badness 10000) detected at line 666
+Underfull \vbox (badness 10000) detected at line 671
  []
 
 [13]
@@ -1074,7 +1074,7 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Here is how much of TeX's memory you used:
  21066 strings out of 476919
  414851 string characters out of 5821839
- 876850 words of memory out of 5000000
+ 877850 words of memory out of 5000000
  40705 multiletter control sequences out of 15000+600000
  410041 words of font info for 100 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
