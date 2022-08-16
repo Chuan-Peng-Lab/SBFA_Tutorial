@@ -3,7 +3,9 @@ title: "贝叶斯因子序列分析在R语言中的实现"
 author:
   - 郑元瑞
   - 胡传鹏
+date: "`r format(Sys.Date(), '%Y-%m-%d')`"
 documentclass: ctexart
+geometry: "left=2cm,right=2cm,top=2cm,bottom=2cm"
 keywords:
   - 贝叶斯因子
   - 序列分析
@@ -13,34 +15,45 @@ output:
     number_sections: yes
     toc: yes
 ---
+
 ```{r}
 rm(list = ls())
 ```
 
 # 下载和安装需要的R语言程序包
+
 ```{r message=FALSE, warning=FALSE}
 # install.packages(c("tidyverse", "BayesFactor", "here"))
 library(BayesFactor)#计算T检验和方差分析的贝叶斯因子
 library(tidyverse)
+library(showtext)#解决中文字体无法显示问题
+library(latex2exp)#latex语法
+font_add("song", 
+         "/System/Library/Fonts/Supplemental/Songti.ttc")
+##从系统增加宋体字
+showtext_auto()
 library(here)
 here()
-options(scipen = 9)#将科学计数法改为在万后9位
+options(scipen = 6)#将科学计数法改为在万后6位
+set.seed(1234)
 ```
 
 ## BayesFacotr包版本
+
 ```{r}
 packageVersion("BayesFactor")
 ```
-
 
 # 导入数据
 
 ```{r message=FALSE}
 df <- readr::read_csv(here("2_Data", "df.sum_jasp.csv"))
 ```
+
 ## 数据长宽数据转换
 
 ### 因变量为RT的数据整理
+
 ```{r}
 #分析因变量为RT的使用数据
 df.RT <- df %>%
@@ -64,6 +77,7 @@ head(df.RT)
 ```
 
 ### 因变量为ACC的数据整理
+
 ```{r}
 df.ACC <- df %>% 
   dplyr::select(subj_idx, starts_with("ACC_")) %>%
@@ -81,6 +95,7 @@ head(df.ACC)
 ```
 
 ### 因变量为dPrime的数据整理
+
 ```{r}
 df.dPrime <- df %>% 
   dplyr::select(subj_idx, starts_with("dPrime_")) %>%
@@ -97,8 +112,8 @@ df.dPrime <- df %>%
 head(df.dPrime)
 ```
 
-
 # 正确的BF计算
+
 ```{r}
 bayesfactors <- BayesFactor::generalTestBF(
     rt ~ Valence*Matchness*subj_idx - subj_idx:Valence:Matchness,
@@ -109,6 +124,7 @@ bayesfactors <- BayesFactor::generalTestBF(
 
 bayesfactors
 ```
+
 ```{r}
 #感兴趣的效应都要先除零模型（仅包括随机效应的模型）
 null <- bayesfactors[8]
@@ -128,27 +144,29 @@ BF_excinx.n/BF_v.n
 ```
 
 ```{r}
-ttestBF(df$RT_Good_Match, df$RT_Neutral_Match, paired = TRUE, nullInterval = c(Inf, 0))[2]
-```
-```{r}
-a <- ttestBF(df$RT_Good_Match, df$RT_Neutral_Match, paired = TRUE, nullInterval = c(0, Inf))
-a[2]
+ttestBF(df$RT_Good_Match, 
+        df$RT_Neutral_Match, 
+        paired = TRUE, 
+        nullInterval = c(Inf, 0))[2]
 ```
 
 # 查看数据的被试信息
+
 ```{r}
 subj_num <- unique(df.RT$subj_idx) # 每个被试的编号
 n <- length(unique(df.RT$subj_idx)) # 一共有20个被试
 n
 ```
 
-#（配对样本）T检验的R语言实现
-## good_match条件与bad_match条件的对比
+# 配对样本T检验的R语言实现 
+
+## 假设：good_match条件优于Neutral_match条件
+
 先建立一个空的列表，用来储存后续的贝叶斯因子。列表长度为目前数据的样本量
+
 ```{r}
 bf_output <- rep(1, length(subj_num)) ### 先建立一个列表
 ```
-
 
 ```{r message=FALSE}
 for (i in seq_along(subj_num)) {#i遍历subj_num
@@ -164,16 +182,18 @@ for (i in seq_along(subj_num)) {#i遍历subj_num
   df.selected <- df %>% filter(subj_idx %in% id)
   #转换为因子型
   df.selected$subj_idx <- as.factor(df.selected$subj_idx)
+  #计算贝叶斯因子
   bayesfactors <- ttestBF(df.selected$RT_Good_Match,
                           df.selected$RT_Neutral_Match, 
                           paired = TRUE, 
-                          nullInterval = c(0, Inf))#计算贝叶斯因子
+                          nullInterval = c(0, Inf))
   bf_output[i] <- bayesfactors[2]
 }
 ```
 
 ## 结果
-```{r fig.height=4, fig.width=4}
+
+```{r fig.height=7, out.width="50%",fig.width=6}
 tibble(bf_output) %>% 
   dplyr::mutate(n = 1:nrow(.)) %>% 
   dplyr::rename("Bayes Factor" = "bf_output") %>% 
@@ -186,8 +206,9 @@ tibble(bf_output) %>%
   scale_y_continuous(
     limits = c(0, 12),
     breaks = c(1/10, 1, 5, 10)) + 
-  ylab(label = "log(BF_10)") + 
+  labs(y = TeX("$\\log(BF_{10}) $")) + 
    theme(
+    panel.background = element_blank(),
     plot.margin = unit(c(1, 1, 1, 1), "cm"),
     plot.background = element_rect(fill = "white", color = NA),
     plot.title = element_text(size = 22, face = "bold",
@@ -207,15 +228,20 @@ tibble(bf_output) %>%
     legend.margin = margin(t = 5, l = 5, r = 5, b = 5),
     legend.key = element_rect(color = NA, fill = NA))
 ```
+
 # （重复测量）方差分析的R语言实现
+
 ## 数据的基本信息
+
 ```{r}
 subj_num <- unique(df.RT$subj_idx) # 每个被试的编号
 n <- length(unique(df.RT$subj_idx)) # 一共有20个被试
 n
 ```
+## 检验交互项
 
 生成三个向量用来储存两个主效应和交互项
+
 ```{r}
 BFs_match <- rep(1, length(subj_num))
 
@@ -254,7 +280,6 @@ for (i in seq_along(subj_num)) {
 }
 ```
 
-
 ```{r}
 aov_output <- tibble::tibble(BFs_int, BFs_valence, BFs_match)#整合为数据框
 aov_output$BFs_int <- round(aov_output$BFs_int, digits = 2)#保留两位小数
@@ -262,8 +287,11 @@ aov_output$BFs_valence <- round(aov_output$BFs_valence, digits = 2)
 aov_output$BFs_match <- round(aov_output$BFs_match, digits = 2)
 head(aov_output)#查看数据
 ```
-## 做折线图
+
+## 结果
+
 ### 长宽数据、log变换
+
 ```{r}
 dat_plot <- aov_output %>% dplyr::mutate(n = 1:nrow(.)) %>% 
   tidyr::pivot_longer(BFs_int:BFs_match, names_to = "Effect", 
@@ -274,9 +302,7 @@ a <- dat_plot %>%
 a
 ```
 
-```{r fig.height=4, fig.width=4}
-# install.packages("latex2exp")
-library(latex2exp)
+```{r fig.height=7, fig.width=6, out.width="50%"}
 dat_plot %>% dplyr::filter(Effect == "BFs_int") %>% 
   ggplot(aes(x = n, y = logBF)) + 
   geom_point(size = 3) + 
@@ -284,7 +310,7 @@ dat_plot %>% dplyr::filter(Effect == "BFs_int") %>%
   geom_hline(aes(yintercept = 0), linetype = "dashed")+
   geom_hline(aes(yintercept = 1), linetype = "dashed")+
   labs(y = TeX("$\\log(BF_{10}) $")) + 
-  ggtitle("The Bayes Factor of RT Interaction Effect") + 
+  ggtitle("交互作用的贝叶斯因子数值变化趋势") + 
   scale_y_continuous(
     limits = c(0, 25),
     breaks = c(0, 1, 10, 20)) + 
@@ -292,7 +318,9 @@ dat_plot %>% dplyr::filter(Effect == "BFs_int") %>%
     panel.background = element_blank(),
     plot.margin = unit(c(1, 1, 1, 1), "cm"),
     plot.background = element_rect(fill = "white", color = NA),
-    plot.title = element_text(size = 22, face = "bold",
+    plot.title = element_text(size = 22, 
+                              family = "song",
+                              face = "bold",
                               hjust = 0.5,
                               margin = margin(b = 15)),
     axis.line = element_line(color = "black", size = .5),
@@ -310,5 +338,3 @@ dat_plot %>% dplyr::filter(Effect == "BFs_int") %>%
     legend.key = element_rect(color = NA, fill = NA))
 # ggsave("RT_inx.png", width = 10, height = 7, dpi = 300)
 ```
-
-
