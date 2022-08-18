@@ -34,7 +34,7 @@ font_add("song",
 showtext_auto()
 library(here)
 here()
-options(scipen = 6)#将科学计数法改为在万后6位
+options(scipen = 9)#将科学计数法改为在万后9位
 set.seed(1234)
 ```
 
@@ -193,7 +193,7 @@ for (i in seq_along(subj_num)) {#i遍历subj_num
 
 ## 结果
 
-```{r fig.height=7, out.width="50%",fig.width=6}
+```{r fig.height=7, out.width="50%",fig.width=7}
 tibble(bf_output) %>% 
   dplyr::mutate(n = 1:nrow(.)) %>% 
   dplyr::rename("Bayes Factor" = "bf_output") %>% 
@@ -201,11 +201,15 @@ tibble(bf_output) %>%
    ggplot(aes(x = n, y = logBF)) + 
   geom_point(size = 3) + 
   geom_line() + 
-  geom_hline(aes(yintercept = 10), linetype = "dashed") + 
-  geom_hline(aes(yintercept = 1/10), linetype = "dashed") +
+  geom_hline(aes(yintercept = log(10)), linetype = "dashed") + 
+  geom_hline(aes(yintercept = log(1)), linetype = "dashed") +
   scale_y_continuous(
     limits = c(0, 12),
-    breaks = c(1/10, 1, 5, 10)) + 
+    breaks = c(round(log(1), 1), 
+               round(log(10), 1), 
+               round(log(100), 1), 
+               round(log(1000), 1), 
+               round(log(10000), 1))) + 
   labs(y = TeX("$\\log(BF_{10}) $")) + 
    theme(
     panel.background = element_blank(),
@@ -282,9 +286,6 @@ for (i in seq_along(subj_num)) {
 
 ```{r}
 aov_output <- tibble::tibble(BFs_int, BFs_valence, BFs_match)#整合为数据框
-aov_output$BFs_int <- round(aov_output$BFs_int, digits = 2)#保留两位小数
-aov_output$BFs_valence <- round(aov_output$BFs_valence, digits = 2)
-aov_output$BFs_match <- round(aov_output$BFs_match, digits = 2)
 head(aov_output)#查看数据
 ```
 
@@ -296,24 +297,37 @@ head(aov_output)#查看数据
 dat_plot <- aov_output %>% dplyr::mutate(n = 1:nrow(.)) %>% 
   tidyr::pivot_longer(BFs_int:BFs_match, names_to = "Effect", 
                values_to = "Bayes Factor") %>% 
-  dplyr::mutate(`logBF` = log(`Bayes Factor`))
-a <- dat_plot %>% 
-  filter(Effect == "BFs_int") 
-a
+  dplyr::mutate(`logBF` = log(`Bayes Factor`)) %>% 
+  dplyr::mutate(dplyr::across(where(is.double), 
+                              ~round(.x, digits = 2)))
+head(dat_plot, 10)
 ```
 
-```{r fig.height=7, fig.width=6, out.width="50%"}
+```{r fig.height=7, fig.width=7, out.width="50%"}
 dat_plot %>% dplyr::filter(Effect == "BFs_int") %>% 
   ggplot(aes(x = n, y = logBF)) + 
   geom_point(size = 3) + 
   geom_line() + 
-  geom_hline(aes(yintercept = 0), linetype = "dashed")+
-  geom_hline(aes(yintercept = 1), linetype = "dashed")+
+  geom_hline(aes(yintercept = log(1)), linetype = "dashed")+
+  geom_hline(aes(yintercept = log(10)), linetype = "dashed")+
   labs(y = TeX("$\\log(BF_{10}) $")) + 
   ggtitle("交互作用的贝叶斯因子数值变化趋势") + 
   scale_y_continuous(
     limits = c(0, 25),
-    breaks = c(0, 1, 10, 20)) + 
+    breaks = c(0, round(log(10), 1), 
+               round(log(100), 1), 
+               round(log(1000), 1), 
+               round(log(10000), 1), 
+               round(log(100000), 1), 
+               round(log(1000000), 1),
+               round(log(10000000), 1), 
+               round(log(100000000), 1), 
+               round(log(100000000), 1), 
+               round(log(1000000000), 1), 
+               round(log(1000000000), 1), 
+               round(log(10000000000), 1)
+               )
+    ) + 
    theme(
     panel.background = element_blank(),
     plot.margin = unit(c(1, 1, 1, 1), "cm"),
