@@ -1,5 +1,5 @@
 # English Information:
-## Sequential Bayes Factor Analysis: An Introduction and Tutorial
+## Sequential Bayes Factor Analysis: An New Method of Balancing Informativeness and Efficiency in Experimental Design 
 
 Authors: Yuan-Rui Zheng, Hu Chuan-Peng
 
